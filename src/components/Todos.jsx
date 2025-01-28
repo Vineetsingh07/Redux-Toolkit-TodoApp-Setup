@@ -1,9 +1,14 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { editTodo, removeTodo } from "../features/todo/todoSlice";
+import {
+  editTodo,
+  removeTodo,
+  toggleComplete,
+} from "../features/todo/todoSlice";
 
 function Todos() {
   const todos = useSelector((state) => state.todos);
+  console.log("todos", todos);
   const dispatch = useDispatch();
 
   return (
@@ -16,7 +21,20 @@ function Todos() {
             key={todo.id}
           >
             {/* Left-aligned text */}
-            <div className="text-white">{todo.text}</div>
+            <div className="flex">
+              <label>
+                <input
+                  class="accent-pink-500"
+                  type="checkbox"
+                  checked={todo.completed}
+                  onChange={() => dispatch(toggleComplete(todo.id))}
+                />
+              </label>
+              <p className="text-white">
+                {JSON.stringify(todo)}
+                {/* {todo.text} */}
+              </p>
+            </div>
 
             {/* Right-aligned buttons */}
             <div className="flex space-x-2">
