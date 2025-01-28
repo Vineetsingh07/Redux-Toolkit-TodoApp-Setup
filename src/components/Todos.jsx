@@ -4,11 +4,14 @@ import {
   editTodo,
   removeTodo,
   toggleComplete,
+  setCurrentTodo,
 } from "../features/todo/todoSlice";
 
 function Todos() {
   const todos = useSelector((state) => state.todos);
-  console.log("todos", todos);
+
+  const currentTodo = useSelector((state) => state.currentTodo);
+  console.log("currentTodo", currentTodo);
   const dispatch = useDispatch();
 
   return (
@@ -47,7 +50,7 @@ function Todos() {
             {/* Right-aligned buttons */}
             <div className="flex space-x-2">
               <button
-                onClick={() => dispatch(editTodo(todo.id, todo.text))}
+                onClick={() => dispatch(setCurrentTodo(todo))}
                 className="text-white bg-blue-500 border-0 py-1 px-4 focus:outline-none hover:bg-blue-600 rounded text-md"
               >
                 <svg
