@@ -7,9 +7,12 @@ import {
   setCurrentTodoMethod,
   toggleCompleteMethod,
 } from "./todoSliceMethods";
+import { getDataFromLocalStorage } from "../../localStorage/localStorage";
 
 const initialState = {
-  todos: [{ id: nanoid(), text: "Hello World", completed: false }],
+  todos: getDataFromLocalStorage("todos") || [
+    { id: nanoid(), text: "Hello World", completed: false },
+  ],
   currentTodo: null,
 };
 
