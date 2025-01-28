@@ -12,6 +12,7 @@ import {
   setDataInLocalStorage,
 } from "../localStorage/localStorage";
 import { enqueueSnackbar } from "notistack";
+import snackbar from "../common/snackbar";
 
 function Todos() {
   const todos = useSelector((state) => state.todos);
@@ -33,11 +34,12 @@ function Todos() {
     removeDataFromLocalStorage("todos");
     dispatch(removeAllTodos());
     const message = "All todos are Removed";
-    enqueueSnackbar(message, {
-      variant: "info",
-      anchorOrigin: { horizontal: "right", vertical: "top" },
-      autoHideDuration: 1000,
-    });
+    snackbar(message)
+    // enqueueSnackbar(message, {
+    //   variant: "info",
+    //   anchorOrigin: { horizontal: "right", vertical: "top" },
+    //   autoHideDuration: 1000,
+    // });
   };
 
   return (
