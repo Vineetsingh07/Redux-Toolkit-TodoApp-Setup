@@ -9,9 +9,7 @@ import {
 
 function Todos() {
   const todos = useSelector((state) => state.todos);
-
-  const currentTodo = useSelector((state) => state.currentTodo);
-  console.log("currentTodo", currentTodo);
+  console.log("todos", todos);
   const dispatch = useDispatch();
 
   return (
