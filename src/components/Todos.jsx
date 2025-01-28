@@ -11,6 +11,7 @@ import {
   removeDataFromLocalStorage,
   setDataInLocalStorage,
 } from "../localStorage/localStorage";
+import { enqueueSnackbar } from "notistack";
 
 function Todos() {
   const todos = useSelector((state) => state.todos);
@@ -31,6 +32,12 @@ function Todos() {
   const handleRemoveTodos = () => {
     removeDataFromLocalStorage("todos");
     dispatch(removeAllTodos());
+    const message = "All todos are Removed";
+    enqueueSnackbar(message, {
+      variant: "info",
+      anchorOrigin: { horizontal: "right", vertical: "top" },
+      autoHideDuration: 1000,
+    });
   };
 
   return (
@@ -40,6 +47,7 @@ function Todos() {
         <button
           onClick={handleRemoveTodos}
           class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+          disabled={!todos.length}
         >
           Clear Todos
         </button>
