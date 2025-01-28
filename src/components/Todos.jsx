@@ -39,7 +39,7 @@ function Todos() {
                 className={`text-white text-left transition-colors duration-300 break-all w-full ${
                   todo.completed ? "line-through text-gray-400" : ""
                 }`}
-                style={{ wordWrap: "break-word" }}  // This forces breaking of long words
+                style={{ wordWrap: "break-word" }}
               >
                 {todo.text}
               </p>
