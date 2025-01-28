@@ -17,7 +17,9 @@ function Todos() {
       <ul className="list-none">
         {todos.map((todo) => (
           <li
-            className="mt-4 flex justify-between items-center bg-zinc-800 px-4 py-2 rounded"
+            className={`mt-4 flex justify-between items-center px-4 py-2 rounded ${
+              todo.completed ? "bg-green-700" : "bg-zinc-800"
+            }`}
             key={todo.id}
           >
             {/* Left-aligned text */}
@@ -31,7 +33,13 @@ function Todos() {
                   onChange={() => dispatch(toggleComplete(todo.id))}
                 />
               </div>
-              <p className="text-white">{todo.text}</p>
+              <p
+                className={`text-white ${
+                  todo.completed ? "line-through text-gray-400" : ""
+                }`}
+              >
+                {todo.text}
+              </p>
             </div>
 
             {/* Right-aligned buttons */}
