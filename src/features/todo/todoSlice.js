@@ -20,7 +20,7 @@ export const todoSlice = createSlice({
     addTodo: addTodoMethod,
     toggleComplete: toggleCompleteMethod,
     removeTodo: removeTodoMethod,
-    editTodo: editTodoMethod, //hatana hai
+    editTodo: editTodoMethod,
     setCurrentTodo: setCurrentTodoMethod,
     clearCurrentTodo: clearCurrentTodoMethod,
   },

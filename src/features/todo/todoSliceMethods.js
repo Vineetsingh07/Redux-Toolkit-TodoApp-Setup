@@ -16,6 +16,7 @@ const toggleCompleteMethod = (state, action) => {
 };
 
 const editTodoMethod = (state, action) => {
+    console.log("action",action)
   const { id, text } = action.payload;
 
   state.todos = state.todos.map((todo) =>
