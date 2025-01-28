@@ -27,9 +27,19 @@ const removeTodoMethod = (state, action) => {
   state.todos = state.todos.filter((todo) => todo.id !== action.payload);
 };
 
+const setCurrentTodoMethod = (state, action) => {
+  state.currentTodo = action.payload;
+};
+
+const clearCurrentTodoMethod = (state, action) => {
+  state.currentTodo = null;
+};
+
 export {
   addTodoMethod,
   toggleCompleteMethod,
   editTodoMethod,
   removeTodoMethod,
+  setCurrentTodoMethod,
+  clearCurrentTodoMethod,
 };
