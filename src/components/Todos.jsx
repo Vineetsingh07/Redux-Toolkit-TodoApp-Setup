@@ -9,7 +9,6 @@ import {
 
 function Todos() {
   const todos = useSelector((state) => state.todos);
-  console.log("todos", todos);
   const dispatch = useDispatch();
 
   return (
@@ -20,13 +19,13 @@ function Todos() {
       <ul className="list-none">
         {todos.map((todo) => (
           <li
-            className={`mt-4 flex justify-between items-center px-4 py-2 rounded transform transition-all duration-300 ${
+            className={`mt-4 flex flex-col md:flex-row justify-between items-center px-4 py-2 rounded transform transition-all duration-300 ${
               todo.completed ? "bg-green-700 shadow-lg" : "bg-zinc-800"
             }`}
             key={todo.id}
           >
             {/* Left-aligned text */}
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 w-full md:w-auto">
               {/* Styled Checkbox */}
               <div className="flex items-center justify-center w-10 h-10 bg-zinc-700 rounded">
                 <input
@@ -37,16 +36,17 @@ function Todos() {
                 />
               </div>
               <p
-                className={`text-white transition-colors duration-300 ${
+                className={`text-white transition-colors duration-300 break-all w-full ${
                   todo.completed ? "line-through text-gray-400" : ""
                 }`}
+                style={{ wordWrap: "break-word" }}  // This forces breaking of long words
               >
                 {todo.text}
               </p>
             </div>
 
             {/* Right-aligned buttons */}
-            <div className="flex space-x-2">
+            <div className="flex space-x-2 mt-2 md:mt-0">
               <button
                 onClick={() => dispatch(setCurrentTodo(todo))}
                 className="text-white bg-blue-500 border-0 py-1 px-4 focus:outline-none hover:bg-blue-600 rounded text-md"
