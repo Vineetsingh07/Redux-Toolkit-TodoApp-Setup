@@ -104,7 +104,13 @@ function Todos() {
               </button>
 
               <button
-                onClick={() => dispatch(removeTodo(todo.id))}
+                onClick={() => {
+                  dispatch(removeTodo(todo.id));
+                  const message = `${todo.text.slice(0, 17)} ${
+                    todo.text.length > 17 ? "..." : ""
+                  } Removed`;
+                  snackbar(message);
+                }}
                 className="text-white bg-red-500 border-0 py-1 px-4 focus:outline-none hover:bg-red-600 rounded text-md"
               >
                 <svg
