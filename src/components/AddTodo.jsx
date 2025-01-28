@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addTodo,
@@ -9,6 +9,7 @@ import {
 function AddTodo() {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
+  const inputRef = useRef(null);
 
   const currentTodo = useSelector((state) => state.currentTodo);
   console.log("currentTodo", currentTodo);
@@ -16,6 +17,7 @@ function AddTodo() {
   useEffect(() => {
     if (currentTodo) {
       setInput(currentTodo.text);
+      inputRef.current.focus();
     } else {
       setInput("");
     }
@@ -26,10 +28,10 @@ function AddTodo() {
 
     if (input.trim()) {
       if (currentTodo) {
-        dispatch(editTodo({ id: currentTodo.id, text: input }));
+        dispatch(editTodo({ id: currentTodo.id, text: input.trim() }));
         clearCurrentTodo();
       } else {
-        dispatch(addTodo(input));
+        dispatch(addTodo(input.trim()));
       }
     } else {
       alert("Plz Enter a Valid Input");
@@ -44,6 +46,7 @@ function AddTodo() {
         type="text"
         className="bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
         placeholder="Enter a Todo..."
+        ref={inputRef}
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
