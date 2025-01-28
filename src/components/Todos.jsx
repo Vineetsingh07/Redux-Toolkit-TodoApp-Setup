@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   editTodo,
@@ -9,7 +9,15 @@ import {
 
 function Todos() {
   const todos = useSelector((state) => state.todos);
+  const currentTodo = useSelector((state) => state.currentTodo);
+
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!todos.some((todo) => todo.id === currentTodo?.id)) {
+      dispatch(setCurrentTodo(null));
+    }
+  }, [todos, currentTodo, dispatch]);
 
   return (
     <>

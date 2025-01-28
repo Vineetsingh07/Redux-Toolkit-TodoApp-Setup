@@ -11,9 +11,8 @@ function AddTodo() {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
   const inputRef = useRef(null);
-
   const currentTodo = useSelector((state) => state.currentTodo);
-  console.log("currentTodo", currentTodo);
+
 
   useEffect(() => {
     if (currentTodo) {
