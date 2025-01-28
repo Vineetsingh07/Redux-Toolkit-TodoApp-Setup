@@ -5,6 +5,7 @@ import {
   editTodo,
   clearCurrentTodo,
 } from "../features/todo/todoSlice";
+import { enqueueSnackbar } from "notistack";
 
 function AddTodo() {
   const [input, setInput] = useState("");
@@ -34,7 +35,12 @@ function AddTodo() {
         dispatch(addTodo(input.trim()));
       }
     } else {
-      alert("Plz Enter a Valid Input");
+      const message = "Please Enter a Valid Todo";
+      enqueueSnackbar(message, {
+        variant: "info",
+        anchorOrigin: { horizontal: "right", vertical: "top" },
+        autoHideDuration: 1000,
+      });
     }
 
     setInput("");
