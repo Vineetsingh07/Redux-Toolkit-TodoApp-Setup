@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <h1 className="text-3xl font-bold underline">
-        Todo Project with Redux-Toolkit
+        Todo App with Redux-Toolkit
       </h1>
       <AddTodo />
       <Todos />
