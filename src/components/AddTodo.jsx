@@ -35,7 +35,9 @@ function AddTodo() {
         snackbar(message);
       } else {
         dispatch(addTodo(input.trim()));
-        const message = `${input.trim()} Added`;
+        const message = `${input.slice(0, 17)} ${
+          input.length > 17 ? "..." : ""
+        } Added`;
         snackbar(message);
       }
     } else {

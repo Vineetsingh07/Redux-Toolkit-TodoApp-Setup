@@ -4,7 +4,7 @@ const snackbar = (message) => {
   enqueueSnackbar(message, {
     variant: "info",
     anchorOrigin: { horizontal: "right", vertical: "top" },
-    autoHideDuration: 1000,
+    autoHideDuration: 2000,
   });
 };
 
