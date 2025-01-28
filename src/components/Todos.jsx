@@ -41,7 +41,7 @@ function Todos() {
         <h2 className="text-2xl font-bold">Todos</h2>
         <button
           onClick={handleRemoveAllTodos}
-          class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+          className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
           disabled={!todos.length}
         >
           Clear Todos
