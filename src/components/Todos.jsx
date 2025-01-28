@@ -21,19 +21,17 @@ function Todos() {
             key={todo.id}
           >
             {/* Left-aligned text */}
-            <div className="flex">
-              <label>
+            <div className="flex items-center space-x-2">
+              {/* Styled Checkbox */}
+              <div className="flex items-center justify-center w-10 h-10 bg-zinc-700 rounded">
                 <input
-                  class="accent-pink-500"
+                  className="w-5 h-5 accent-pink-500"
                   type="checkbox"
                   checked={todo.completed}
                   onChange={() => dispatch(toggleComplete(todo.id))}
                 />
-              </label>
-              <p className="text-white">
-                {JSON.stringify(todo)}
-                {/* {todo.text} */}
-              </p>
+              </div>
+              <p className="text-white">{todo.text}</p>
             </div>
 
             {/* Right-aligned buttons */}
