@@ -34,12 +34,7 @@ function Todos() {
     removeDataFromLocalStorage("todos");
     dispatch(removeAllTodos());
     const message = "All todos are Removed";
-    snackbar(message)
-    // enqueueSnackbar(message, {
-    //   variant: "info",
-    //   anchorOrigin: { horizontal: "right", vertical: "top" },
-    //   autoHideDuration: 1000,
-    // });
+    snackbar(message);
   };
 
   return (

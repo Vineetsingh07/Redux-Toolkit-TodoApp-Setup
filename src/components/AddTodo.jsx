@@ -6,6 +6,7 @@ import {
   clearCurrentTodo,
 } from "../features/todo/todoSlice";
 import { enqueueSnackbar } from "notistack";
+import snackbar from "../common/snackbar";
 
 function AddTodo() {
   const [input, setInput] = useState("");
@@ -29,16 +30,17 @@ function AddTodo() {
       if (currentTodo) {
         dispatch(editTodo({ id: currentTodo.id, text: input.trim() }));
         dispatch(clearCurrentTodo());
+
+        const message = "Todo Updated Successfully";
+        snackbar(message);
       } else {
         dispatch(addTodo(input.trim()));
+        const message = `${input.trim()} Added`;
+        snackbar(message);
       }
     } else {
       const message = "Please Enter a Valid Todo";
-      enqueueSnackbar(message, {
-        variant: "info",
-        anchorOrigin: { horizontal: "right", vertical: "top" },
-        autoHideDuration: 1000,
-      });
+      snackbar(message);
     }
 
     setInput("");
