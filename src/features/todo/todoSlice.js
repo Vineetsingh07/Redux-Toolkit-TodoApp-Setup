@@ -6,6 +6,7 @@ import {
   removeTodoMethod,
   setCurrentTodoMethod,
   toggleCompleteMethod,
+  removeAllTodosMethod,
 } from "./todoSliceMethods";
 import { getDataFromLocalStorage } from "../../localStorage/localStorage";
 
@@ -26,6 +27,7 @@ export const todoSlice = createSlice({
     editTodo: editTodoMethod,
     setCurrentTodo: setCurrentTodoMethod,
     clearCurrentTodo: clearCurrentTodoMethod,
+    removeAllTodos: removeAllTodosMethod,
   },
 });
 
@@ -36,6 +38,7 @@ export const {
   editTodo,
   setCurrentTodo,
   clearCurrentTodo,
+  removeAllTodos,
 } = todoSlice.actions;
 
 export default todoSlice.reducer;

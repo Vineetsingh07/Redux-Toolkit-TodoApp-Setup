@@ -5,7 +5,12 @@ import {
   removeTodo,
   toggleComplete,
   setCurrentTodo,
+  removeAllTodos,
 } from "../features/todo/todoSlice";
+import {
+  removeDataFromLocalStorage,
+  setDataInLocalStorage,
+} from "../localStorage/localStorage";
 
 function Todos() {
   const todos = useSelector((state) => state.todos);
@@ -19,10 +24,25 @@ function Todos() {
     }
   }, [todos, currentTodo, dispatch]);
 
+  useEffect(() => {
+    setDataInLocalStorage("todos", todos);
+  }, [todos]);
+
+  const handleRemoveTodos = () => {
+    removeDataFromLocalStorage("todos");
+    dispatch(removeAllTodos());
+  };
+
   return (
     <>
-      <div className="mt-4">
+      <div className="mt-4 flex justify-between">
         <h2 className="text-2xl font-bold">Todos</h2>
+        <button
+          onClick={handleRemoveTodos}
+          class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+        >
+          Clear
+        </button>
       </div>
       <ul className="list-none">
         {todos.map((todo) => (
