@@ -7,4 +7,12 @@ const setDataInLocalStorage = (key, value) => {
   localStorage.setItem(key, data);
 };
 
-export { getDataFromLocalStorage, setDataInLocalStorage };
+const removeDataFromLocalStorage = (key) => {
+  localStorage.removeItem(key);
+};
+
+export {
+  getDataFromLocalStorage,
+  setDataInLocalStorage,
+  removeDataFromLocalStorage,
+};
