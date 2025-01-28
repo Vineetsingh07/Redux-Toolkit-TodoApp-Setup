@@ -13,12 +13,14 @@ function Todos() {
 
   return (
     <>
-      <div>Todos</div>
+      <div className="mt-4">
+        <h2 className="text-2xl font-bold">Todos</h2>
+      </div>
       <ul className="list-none">
         {todos.map((todo) => (
           <li
-            className={`mt-4 flex justify-between items-center px-4 py-2 rounded ${
-              todo.completed ? "bg-green-700" : "bg-zinc-800"
+            className={`mt-4 flex justify-between items-center px-4 py-2 rounded transform transition-all duration-300 ${
+              todo.completed ? "bg-green-700 shadow-lg" : "bg-zinc-800"
             }`}
             key={todo.id}
           >
@@ -34,7 +36,7 @@ function Todos() {
                 />
               </div>
               <p
-                className={`text-white ${
+                className={`text-white transition-colors duration-300 ${
                   todo.completed ? "line-through text-gray-400" : ""
                 }`}
               >
