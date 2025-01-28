@@ -13,7 +13,6 @@ function AddTodo() {
   const inputRef = useRef(null);
   const currentTodo = useSelector((state) => state.currentTodo);
 
-
   useEffect(() => {
     if (currentTodo) {
       setInput(currentTodo.text);
@@ -29,7 +28,7 @@ function AddTodo() {
     if (input.trim()) {
       if (currentTodo) {
         dispatch(editTodo({ id: currentTodo.id, text: input.trim() }));
-        clearCurrentTodo();
+        dispatch(clearCurrentTodo());
       } else {
         dispatch(addTodo(input.trim()));
       }
