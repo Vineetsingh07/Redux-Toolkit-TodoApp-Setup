@@ -41,7 +41,7 @@ function Todos() {
           onClick={handleRemoveTodos}
           class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
         >
-          Clear
+          Clear Todos
         </button>
       </div>
       <ul className="list-none">
