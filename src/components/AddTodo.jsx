@@ -5,7 +5,6 @@ import {
   editTodo,
   clearCurrentTodo,
 } from "../features/todo/todoSlice";
-import { enqueueSnackbar } from "notistack";
 import snackbar from "../common/snackbar";
 
 function AddTodo() {

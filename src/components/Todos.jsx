@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  editTodo,
   removeTodo,
   toggleComplete,
   setCurrentTodo,
@@ -11,7 +10,6 @@ import {
   removeDataFromLocalStorage,
   setDataInLocalStorage,
 } from "../localStorage/localStorage";
-import { enqueueSnackbar } from "notistack";
 import snackbar from "../common/snackbar";
 
 function Todos() {
